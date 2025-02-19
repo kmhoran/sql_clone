@@ -6,7 +6,7 @@ EXEC = sql_exercise
 # Find all .c files in the current directory and subdirectories
 SOURCES = $(shell find . -name "*.c")
 # Convert the .c file names to .o file names in the build directory
-OBJECTS = $(SOURCES:.c=$(BUILD_DIR)/.o)
+OBJECTS = $(patsubst %.c, $(BUILD_DIR)/%.o, $(SOURCES))
 
 # Default target
 $(EXEC): $(OBJECTS)
