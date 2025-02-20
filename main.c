@@ -1,14 +1,26 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
 #include "input_buffer.h"
+#include "utilities.h"
 
 int main()
 {
     InputBuffer *input_buffer = new_input_buffer();
 
-    printf("Buffer length: %zu\n", input_buffer->buffer_length);
-    printf("Input length: %zd\n", input_buffer->input_length);
+    while (true)
+    {
+        print_prompt();
+        read_input(input_buffer);
 
-    free_input_buffer(input_buffer);
-
-    return 0;
+        if (strcmp(input_buffer->buffer, ".exit") == 0)
+        {
+            free_input_buffer(input_buffer);
+            exit(EXIT_SUCCESS);
+        }
+        else
+        {
+            printf("Unrecognized command: '%s'.\n", input_buffer->buffer);
+        }
+    }
 }
