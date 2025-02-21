@@ -1,5 +1,6 @@
 #include "utilities.h"
 #include <stdio.h>
+#include <string.h>
 #include "input_buffer.h"
 #include "enums.h"
 
