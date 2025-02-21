@@ -21,7 +21,7 @@ jobs:
           cd cmocka
           cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug
           cmake --build build
-          cmake --install build
+          sudo cmake --install build
           cd ..
     - name: make test
       run: make test
