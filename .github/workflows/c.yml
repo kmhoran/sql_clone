@@ -15,7 +15,10 @@ jobs:
     - uses: actions/checkout@v4
     - name: make
       run: make
-    - name: make check
-      run: make check
+    - name: install cmocka
+      run: |
+          git clone https://git.cryptomilk.org/projects/cmocka.git
+          cd cmocka
+          cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug
     - name: make test
       run: make test
