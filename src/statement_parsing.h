@@ -6,6 +6,7 @@
 
 typedef enum
 {
+    STATEMENT_UNKOWN,
     STATEMENT_INSERT,
     STATEMENT_SELECT
 } StatementType;

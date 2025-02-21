@@ -17,6 +17,7 @@ PrepareResult prepare_statement(InputBuffer *input_buffer, Statement *statement)
         return PEPARE_SUCCESS;
     }
 
+    statement->type = STATEMENT_UNKOWN;
     return PREPARE_UNRECOGNIZED_STATEMENT;
 }
 
@@ -29,6 +30,9 @@ void execute_statement(Statement *statement)
         break;
     case (STATEMENT_SELECT):
         printf("This is where we select!\n");
+        break;
+    default:
+        printf("an invalid statement was given\n");
         break;
     }
 }
