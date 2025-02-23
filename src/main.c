@@ -23,6 +23,9 @@ int main()
                 continue;
             case (META_COMMAND_UNRECOGNIZED_COMMAND):
                 printf("Unrecognized command: '%s'\n", input_buffer->buffer);
+                continue;
+            case (META_COMMAND_EXIT):
+                exit(EXIT_SUCCESS);
             }
         }
         Statement statement;
@@ -37,5 +40,6 @@ int main()
 
         execute_statement(&statement);
         printf("Executed.\n");
+        free_input_buffer(input_buffer);
     }
 }

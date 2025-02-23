@@ -5,3 +5,6 @@ devnotes.md
 build/
 sql_exercise
 test_sql_exercise
+
+# IDE
+.vscode/
